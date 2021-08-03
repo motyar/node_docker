@@ -14,5 +14,5 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
         
       - name: Run Docker Image 
-        run: docker run $IMAGE_NAME
+        run: docker run --tag $IMAGE_NAME
       
