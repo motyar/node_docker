@@ -1,11 +1,14 @@
-on: [push]
+name: Dockerize SCM
 
+on:
+  push
+env:
+  IMAGE_NAME: actionshackathon
 jobs:
-  hello_world_job:
+  push:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+
+      - name: Create Docker Image for Development Environment
+        run: docker build . --file Dockerfile
