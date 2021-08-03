@@ -10,9 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Create Docker Image for Development Environment
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+      - name: Docker build and run
+        run: docker build . --file Dockerfile -t foo . && docker run -it foo
         
-      - name: Run Docker Image 
-        run: docker run --tag $IMAGE_NAME
+     
       
